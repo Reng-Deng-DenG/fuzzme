@@ -37,6 +37,6 @@ CREATE TABLE `users`
 	PRIMARY KEY(`id`)
 );
 
-INSERT INTO `users` (username, password, email, rank) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com', '1');
+INSERT INTO `users` (username, password, email, rank) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com', 1, 0);
 
 
