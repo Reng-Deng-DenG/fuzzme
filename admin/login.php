@@ -1,3 +1,14 @@
+<?php session_start();
+include('../config.php');
+
+if(!isset($_SESSION['email']) && !isset($_SESSION['username']))
+{
+	header('Location: '.$uri.'/login.php');
+	exit();
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +22,8 @@
 
 <div class='login'>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='POST'>
-		<label> Username </label>
-			<input type='text' name='username'><br>
+		<label> Address Mail </label>
+			<input type='email' name='email'><br>
 		<label> Password</label>
 			<input type='password' name='password'><br>
 			<input type='submit' name='submit' value='login'>
@@ -23,37 +34,48 @@ include('../db/db.php');
 
 ini_set('display_errors', '1');
 
-$password = sha1($_POST['password']);
-$username = $_POST['username'];
+$password = $_POST['password'];
+$email = $_POST['email'];
 $submit = $_POST['submit'];
-
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 $referer = $_SERVER['HTTP_REFERER'];
 $ip = $_SERVER['REMOTE_ADDR'];
 
-if(isset($password) && !empty($password) && isset($username) && !empty($username) && isset($submit) && !empty($submit) && $submit === 'login')
+if(isset($password) && !empty($password) && isset($email) && !empty($email) && isset($submit) && !empty($submit) && $submit === 'login')// Vérification des champs
 {
 
 
-	$r = $db->prepare('SELECT username,password FROM users WHERE username = :username and password = :password');
-	$r->bindParam(':username', $username);
-	$r->bindParam(':password', $password);
-	$r->execute();
-	$userExist = $r->rowCount();
+	$r = $db->prepare('SELECT * FROM users WHERE email = ?');
+	$r->execute([$email]);
+	$data  = $r->fetch();
 
-	if($userExist > 0)
+	if($data == true)// Vérification de l'email
 	{
-		$r = $db->prepare('SELECT rank,username FROM users WHERE username = :username');
-		$r->bindParam(':username', $username);
-		$r->execute();
-		$data = $r->fetchAll();
 
-		var_dump($data);
+		if(sha1($password) === $data['password'])// Vérification du mot de passe
+		{
+			if($data['rank'] > 0)// Vérification du rank
+			{
+				$_SESSION['rank'] = $data['rank'];
+				header('Location: '.$uri.'/admin/index.php');//Redirection vers l'index du panel
+				exit();
+			}
+			else
+			{
+				echo '<br><i> Access denied ! </i>';
+			}
+		}
+		else
+		{
+			echo '<br><i> Email or password incorect !</i>';
+		}
+
 	}
 	else
 	{
-		echo '<br><i>Incorrect credential</i>';
+		echo '<br><i> Email or password incorect !</i>';
 	}
+
 }
 
 ?>
