@@ -69,7 +69,7 @@ if(isset($username) && !empty($username) && isset($password) && !empty($password
 								$r = $db->prepare("INSERT INTO `users` (username, password, email, ip, referer, userAgent, points, rank) VALUES (:username, :password, :email, :ip, :userAgent, :referer, 0, 0)");
 
 								$r->bindParam(':username', $username);
-								$r->bindParam(':password', $password);
+								$r->bindParam(':password', sha1($password));
 								$r->BindParam(':email', $email);
 								$r->BindParam(':ip', $ip);
 								$r->BindParam(':userAgent', $user_agent);
