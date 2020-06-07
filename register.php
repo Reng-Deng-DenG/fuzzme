@@ -3,7 +3,7 @@ include('config.php');
 
 if(isset($_SESSION['email']) && isset($_SESSION['username']))
 {
-	header('Location: '.$uri.'login.php');
+	header('Location: '.$uri.'/login.php');
 	exit();
 }
 ?>
@@ -82,7 +82,7 @@ if(isset($username) && !empty($username) && isset($password) && !empty($password
                 					exit();
             				}
 
-            				header('Location: '.$uri.'login.php');
+            				header('Location: '.$uri.'/login.php');
             				exit();
             			}
 						else
