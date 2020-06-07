@@ -49,6 +49,6 @@ CREATE TABLE `users`
 CHARACTER SET utf8;
 
 
-INSERT INTO `users` (username, password, email, rank, points) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com','127.0.1','http://127.0.0.0','Mozilla X64', 0, '1');
+INSERT INTO `users` (username, password, email, ip, referer, userAgent, points, rank) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com','127.0.1','http://127.0.0.0','Mozilla X64', 0, '1');
 
 
