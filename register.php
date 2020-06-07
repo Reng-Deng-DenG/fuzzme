@@ -53,7 +53,7 @@ if(isset($username) && !empty($username) && isset($password) && !empty($password
 					{	
 						try
 						{
-							$r = $db->prepare("INSERT INTO `users` (username, password, email, rank) VALUES (:username, :password, :email, '0')");
+							$r = $db->prepare("INSERT INTO `users` (username, password, email, rank, points) VALUES (:username, :password, :email, 0, 0)");
 
 							$r->bindParam(':username', $username);
 							$r->bindParam(':password', $password);
