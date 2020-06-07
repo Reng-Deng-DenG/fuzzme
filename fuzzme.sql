@@ -1,4 +1,4 @@
-CREATE USER 'fuzzme'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secpassword!';
+CREATE USER 'fuzzme'@'localhost' IDENTIFIED WITH mysql_native_password BY 'xxx';
 CREATE DATABASE fuzzme;
 use fuzzme;
 GRANT ALL ON fuzzme.* TO 'fuzzme'@'localhost';
