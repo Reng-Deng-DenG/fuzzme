@@ -22,7 +22,7 @@ CREATE TABLE `labs`
         `flawType` VARCHAR(120) NOT NULL,
 
         PRIMARY KEY (`id`)
-)
+);
 
 
 CREATE TABLE `users`
