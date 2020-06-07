@@ -1,3 +1,12 @@
+<?php session_start();
+
+if(isset($_SESSION['email']) && isset($_SESSION['username']))
+{
+	header('Location: http://127.0.0.1/fuzzme/login.php');
+	exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +41,7 @@ $password = $_POST['password'];
 $cpassword = $_POST['cpassword'];
 $email = $_POST['email'];
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
+$referer = $_SERVER['HTTP_REFERER'];
 $ip = $_SERVER['REMOTE_ADDR'];
 
 
@@ -45,29 +55,43 @@ if(isset($username) && !empty($username) && isset($password) && !empty($password
 			{
 				if(strlen($password) >= 8)// Vérification que que le mot de passe est supérieur à 8 caractères
 				{
-					$r = $db->prepare('SELECT email FROM users WHERE email = ?');
-					$r->execute([$email]);
-					$emailExist = $r->rowCount();
+					if(strlen($email) < 60)// SQL path truncation protection
+					{
+						$r = $db->prepare('SELECT email FROM users WHERE email = ?');
+						$r->execute([$email]);
+						$emailExist = $r->rowCount();
 
-					if($emailExist === 0)// Vérification que l'address mail n'existe pas
-					{	
-						try
-						{
-							$r = $db->prepare("INSERT INTO `users` (username, password, email, rank, points) VALUES (:username, :password, :email, 0, 0)");
+						if($emailExist === 0)// Vérification que l'address mail n'existe pas
+						{	
+							try
+							{
+								$r = $db->prepare("INSERT INTO `users` (username, password, email, ip, referer, userAgent, points, rank) VALUES (:username, :password, :email, :ip, :userAgent, :referer, 0, 0)");
 
-							$r->bindParam(':username', $username);
-							$r->bindParam(':password', $password);
-							$r->BindParam(':email', $email);
-							$r->execute();
-						}
-						catch(PDOException $e)
-						{
-                				echo "Erreur : " . $e->getMessage();
+								$r->bindParam(':username', $username);
+								$r->bindParam(':password', $password);
+								$r->BindParam(':email', $email);
+								$r->BindParam(':ip', $ip);
+								$r->BindParam(':userAgent', $user_agent);
+								$r->BindParam(':referer', $referer);
+								$r->execute();
+							}
+							catch(PDOException $e)
+							{
+                					echo "Erreur : " . $e->getMessage();
+                					exit();
+            				}
+
+            				header('Location: http://127.0.0.1/fuzzme/login.php');
+            				exit();
             			}
+						else
+						{
+							echo '<br><i>Address email already exist ! </i>';
+						}
 					}
 					else
 					{
-						echo '<br><i>Address email already exist ! </i>';
+						echo '<br><i>Address mail incorrect ! </i>';
 					}
 				}
 				else
