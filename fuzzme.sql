@@ -38,7 +38,7 @@ CREATE TABLE `users`
 	`password` VARCHAR(60) NOT NULL,
 	`email` VARCHAR(60) NOT NULL,
 	`ip` VARCHAR(60) NOT NULL,
-	`referer` VARCHAR(777) NOT NULL,
+	`referer` VARCHAR(255) NOT NULL,
 	`userAgent`VARCHAR(255) NOT NULL,
 	`points` INT NOT NULL,
 	`rank` INT NOT NULL,
