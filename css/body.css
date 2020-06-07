@@ -12,8 +12,34 @@ h3{
         font-family: Andale Mono, monospace;
 }
 
-/* *** Login *** */
+/*Contact*/
+input[type=submit] {
+	width: 10%;
+	background-color: #4CAF50;
+	color: white;
+  	padding: 14px 20px;
+  	margin: 8px 0;
+  	border: none;
+  	border-radius: 4px;
+  	cursor: pointer;
+}
+input[type=text] {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 7px;
+}
+textarea {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 10px%;
+}
 
-/**blabla **/
-
-/* *** Contact *** */
+input[name=username] {
+	width: 250;
+}
+input[name=sujet] {
+	width: 255;
+} 
+form {
+	font-family: monospace;
+}
