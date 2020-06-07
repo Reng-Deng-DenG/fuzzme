@@ -6,7 +6,7 @@ if(!isset($_SESSION['email']) && !isset($_SESSION['username']))
 	header('Location: '.$uri.'/login.php');
 	exit();
 }
-elseif(!isset($_SESSION['rank']) && $_SESSION['rank'] === 0);
+elseif(!isset($_SESSION['rank']));
 {
 	header('Location: '.$uri.'/admin/login.php');
 	exit();
