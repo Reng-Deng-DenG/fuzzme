@@ -25,7 +25,7 @@
 			<option value='medium'>Medium</option>
 			<option value='hard'>Hard</option>
 		</select>
-		<input type='hidden' name='token'>
+		<input type='hidden' name='token' value='7777777777777777777777777777777777'>
 		<input type='submit' value='OK'>
 	</form> 	
 </div>
