@@ -37,8 +37,11 @@ CREATE TABLE `users`
 	`username` VARCHAR(60) NOT NULL,
 	`password` VARCHAR(60) NOT NULL,
 	`email` VARCHAR(60) NOT NULL,
+	`ip` VARCHAR(60) NOT NULL,
+	`referer` VARCHAR(777) NOT NULL,
+	`userAgent`VARCHAR(255) NOT NULL,
+	`points` INT NOT NULL,
 	`rank` INT NOT NULL,
-        `points` INT NOT NULL,
 
 	PRIMARY KEY(`id`)
 )
@@ -46,6 +49,6 @@ CREATE TABLE `users`
 CHARACTER SET utf8;
 
 
-INSERT INTO `users` (username, password, email, rank, points) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com', 1, 0);
+INSERT INTO `users` (username, password, email, rank, points) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com','127.0.1','http://127.0.0.0','Mozilla X64', 0, '1');
 
 
