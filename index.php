@@ -18,6 +18,7 @@ if(!isset($_SESSION['email']) && !isset($_SESSION['username']))
 <body>
 
 <?php
+include('includes/header.php');
 echo '<h1> TEST </h1>';
 echo htmlspecialchars($_SESSION['email']);
 echo '<br>';
