@@ -36,7 +36,36 @@ a.nav{
 	margin-right:1%;
 	color:white;
 }
-/*Contact*/
+
+/* *** Tableau *** */
+
+table{
+	border-collapse: collapse;
+	border-color:white;
+	text-align: center;
+	margin-left:5%;
+}
+th{
+	padding-right:20px;
+	padding-left:20px;
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
+
+td{
+	padding-right:20px;
+	padding-left:20px;
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
+tr{
+	border:1px solid black;
+}
+
+
+/* *** Contact *** */
 input[type=submit] {
 	width: 10%;
 	background-color: #4CAF50;
@@ -47,16 +76,21 @@ input[type=submit] {
   	border-radius: 4px;
   	cursor: pointer;
 }
+
+
 input[type=text] {
 	border-radius: 5px;
 	background-color: #f2f2f2;
 	padding: 7px;
 }
+
+
 textarea {
         border-radius: 5px;
         background-color: #f2f2f2;
         padding: 10px%;
 }
+
 
 input[name=username] {
 	width: 250;
@@ -67,6 +101,8 @@ input[name=sujet] {
 form {
 	font-family: monospace;
 }
+
+
 /*Classement*/
 table {
     border-collapse: collapse;
