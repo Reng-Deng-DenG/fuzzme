@@ -79,11 +79,11 @@ if(isset($username) && !empty($username) && isset($password) && !empty($password
 							{
                 					echo "Erreur : " . $e->getMessage();
                 					exit();
-            				}
+            						}
 
-            				header('Location: http://127.0.0.1/fuzzme/login.php');
-            				exit();
-            			}
+            						header('Location: http://127.0.0.1/fuzzme/login.php');
+            						exit();
+            					}
 						else
 						{
 							echo '<br><i>Address email already exist ! </i>';
