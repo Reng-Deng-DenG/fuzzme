@@ -1,17 +1,41 @@
-/* *** Index *** */
-div.directory{
-        padding-left: 7%;
+/* *** Html *** */
+
+*{
+	margin: 0%;
+	padding:0%;
 }
 
-h1{
-        font-family: Andale Mono, monospace;
+/* *** Color *** */
+
+ span.greenMedium{
+ 	color:#50c214;
+ }
+
+
+
+/* *** Header *** */
+
+div.header{
+	background-color:#3e4244;
+	font-family: OCR A Std, monospace;
+	padding-top:1%;
+	padding-bottom:1%;
 }
 
+h2.nav{
+	display:inline;/*Alignement de l'élément*/
+	margin-right:2%;
+	margin-left:1%;
+	color:white;
 
-h3{
-        font-family: Andale Mono, monospace;
 }
 
+a.nav{
+	text-decoration:none;
+	float:right;
+	margin-right:1%;
+	color:white;
+}
 /*Contact*/
 input[type=submit] {
 	width: 10%;
