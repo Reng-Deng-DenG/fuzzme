@@ -23,7 +23,7 @@ echo htmlspecialchars($_SESSION['email']);
 echo '<br>';
 echo htmlspecialchars($_SESSION['username']);
 
-var_dump($_SESSION);
+htmlspecialchars(var_dump($_SESSION));
 
 ?>
 
