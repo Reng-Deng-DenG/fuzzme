@@ -1,14 +1,16 @@
 <?php session_start();
 include('../config.php');
 
-if(!isset($_SESSION['email']) && !isset($_SESSION['username']))
-{
-	header('Location: '.$uri.'/login.php');
-	exit();
-}
-elseif(!isset($_SESSION['rank']));
+var_dump($_SESSION);
+
+if($_SESSION['rank'] != 1)
 {
 	header('Location: '.$uri.'/admin/login.php');
+	exit();
+}
+elseif(!isset($_SESSION['email']) && !isset($_SESSION['username']))
+{
+	header('Location: '.$uri.'/login.php');
 	exit();
 }
 
