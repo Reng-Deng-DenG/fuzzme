@@ -1,6 +1,5 @@
 CREATE USER 'fuzzme'@'localhost' IDENTIFIED WITH mysql_native_password BY 'xxx';
 CREATE DATABASE fuzzme;
-ALTER DATABASE fuzzme charset=utf8;
 use fuzzme;
 GRANT ALL ON fuzzme.* TO 'fuzzme'@'localhost';
 
@@ -14,7 +13,11 @@ CREATE TABLE `challenges`
         `points` INT NOT NULL,
 
         PRIMARY KEY (`id`)
-);
+)
+
+CHARACTER SET utf8;
+
+
 
 CREATE TABLE `labs`
 (
@@ -23,7 +26,9 @@ CREATE TABLE `labs`
         `flawType` VARCHAR(120) NOT NULL,
 
         PRIMARY KEY (`id`)
-);
+)
+
+CHARACTER SET utf8;
 
 
 CREATE TABLE `users`
@@ -36,7 +41,10 @@ CREATE TABLE `users`
         `points` INT NOT NULL,
 
 	PRIMARY KEY(`id`)
-);
+)
+
+CHARACTER SET utf8;
+
 
 INSERT INTO `users` (username, password, email, rank, points) VALUES ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'admin@gmail.com', 1, 0);
 
