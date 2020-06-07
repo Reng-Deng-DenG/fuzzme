@@ -10,6 +10,7 @@ CREATE TABLE `challenges`
         `name` VARCHAR(60) NOT NULL,
         `type` VARCHAR(60) NOT NULL,
         `difficulty` VARCHAR(60) NOT NULL,
+	`description` VARCHAR(360) NOT NULL,
         `points` INT NOT NULL,
 
         PRIMARY KEY (`id`)
