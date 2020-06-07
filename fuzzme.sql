@@ -21,7 +21,7 @@ CREATE TABLE `labs`
         `name` INT NOT NULL,
         `flawType` VARCHAR(120) NOT NULL,
 
-        PRIMARY KEY ('id')
+        PRIMARY KEY (`id`)
 )
 
 
