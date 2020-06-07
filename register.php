@@ -1,8 +1,9 @@
 <?php session_start();
+include('config.php');
 
 if(isset($_SESSION['email']) && isset($_SESSION['username']))
 {
-	header('Location: http://127.0.0.1/fuzzme/login.php');
+	header('Location: '.$uri.'login.php');
 	exit();
 }
 ?>
@@ -31,10 +32,10 @@ if(isset($_SESSION['email']) && isset($_SESSION['username']))
 
 </div>
 <?php
-
 ini_set('display_errors', '1');
-
 include('db/db.php');
+include('config.php');
+
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -79,11 +80,11 @@ if(isset($username) && !empty($username) && isset($password) && !empty($password
 							{
                 					echo "Erreur : " . $e->getMessage();
                 					exit();
-            						}
+            				}
 
-            						header('Location: http://127.0.0.1/fuzzme/login.php');
-            						exit();
-            					}
+            				header('Location: '.$uri.'login.php');
+            				exit();
+            			}
 						else
 						{
 							echo '<br><i>Address email already exist ! </i>';
