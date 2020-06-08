@@ -60,6 +60,7 @@ if(isset($email) && !empty($email) && isset($password) && !empty($password) && i
 
             $_SESSION['email'] = $data['email'];
             $_SESSION['username'] = $data['username'];
+	    $_SESSION['token'] = $token = random_int(100000000, 10000000000000000) * 7 ;
             header('Location: '.$uri.'/index.php');
             exit();
 		}
