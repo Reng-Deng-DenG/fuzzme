@@ -14,6 +14,8 @@ if(!isset($_SESSION['email']) && !isset($_SESSION['username']))
 <head>
 	<title>Home</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/body.css">
+	
 </head>
 <body>
 
