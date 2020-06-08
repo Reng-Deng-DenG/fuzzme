@@ -9,6 +9,7 @@ CREATE TABLE `challenges`
         `id` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(60) NOT NULL,
         `type` VARCHAR(60) NOT NULL,
+	`url` VARCHAR(120) NOT NULL,
         `difficulty` VARCHAR(60) NOT NULL,
 	`description` VARCHAR(360) NOT NULL,
         `points` INT NOT NULL,
