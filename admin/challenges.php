@@ -55,7 +55,7 @@ elseif(!isset($_SESSION['email']) && !isset($_SESSION['username']))
 	</form>
 
 <?php
-
+include('../db/db.php');
 $challName = $_POST['name'];
 $challUrl = $_POST['url'];
 $challDescription = $_POST['description'];
