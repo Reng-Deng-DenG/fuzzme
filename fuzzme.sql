@@ -38,6 +38,7 @@ CREATE TABLE `users`
 	`username` VARCHAR(60) NOT NULL,
 	`password` VARCHAR(60) NOT NULL,
 	`email` VARCHAR(60) NOT NULL,
+	`token` VARCHAR(60) NOT NULL,
 	`ip` VARCHAR(60) NOT NULL,
 	`referer` VARCHAR(255),
 	`userAgent`VARCHAR(255) NOT NULL,
