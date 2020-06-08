@@ -50,7 +50,7 @@ elseif(!isset($_SESSION['email']) && !isset($_SESSION['username']))
 
 		<label>Points</label>
 			<input type='number' name='points' size='10'>
-			<input type='hidden' name='token' value='test'><br>
+			<input type='hidden' name='token' value="<?php echo $_SESSION['token']; ?>"><br>
 			<input type='submit' name='addChall' value='Add'>
 	</form>
 
