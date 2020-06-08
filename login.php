@@ -44,7 +44,7 @@ if(isset($email) && !empty($email) && isset($password) && !empty($password) && i
 	$r->execute([$email]);
 	$data = $r->fetch();
 
-	if($data === true)// Vérification de l'email
+	if($data == true)// Vérification de l'email
 	{
 		if(sha1($password) === $data['password'])
 		{
