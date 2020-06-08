@@ -7,29 +7,46 @@ if(isset($_SESSION['email']) && isset($_SESSION['username']))
 	exit();
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Register</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/body.css">
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class='register'>
-	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='POST'>
-		<label>Username</label>
-			<input type='text' name='username'><br>
-		<label>Mail</label>
-			<input type='mail' name='email'><br>
-		<label>Password</label>
-			<input type='password' name='password'><br>
-		<label> Confirm Password</label>
-			<input type='password' name='cpassword'><br>
-			<input type='submit' name='submit' value='register'><br>
-	</form>
+<div class="container">
+  <h2>Register</h2>
+  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method='POST'>
 
+  	 <div class="form-group">
+      <label for="email">Username:</label>
+      <input type="text" class="form-control" id="username" name='username'>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name='email'>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name='password'>
+    </div>
+
+     <div class="form-group">
+      <label for="password">Confirm:</label>
+      <input type="password" class="form-control" id="password" name='cpassword'>
+    </div>
+
+    <input type='submit' class="btn btn-success" value='Success'>
+
+  </form>
+<br><a href='login.php'>Already have account ?</a>
 </div>
 <?php
 ini_set('display_errors', '1');
