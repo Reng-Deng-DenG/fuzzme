@@ -1,7 +1,7 @@
 <?php session_start();
 include('../config.php');
 
-/*var_dump($_SESSION);
+var_dump($_SESSION);
 
 if($_SESSION['rank'] != 1)
 {
@@ -12,7 +12,7 @@ elseif(!isset($_SESSION['email']) && !isset($_SESSION['username']))
 {
 	header('Location: '.$uri.'/login.php');
 	exit();
-}*/
+}
 
 ?>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@ $submit = $_POST['addChall'];
 if(isset($challName) && !empty($challName) && isset($challUrl) && !empty($challUrl) && isset($challDescription) && !empty($challDescription) && isset($challType) && !empty($challType) && isset($challDifficulty) && !empty($challDifficulty) && isset($token) && !empty($token) && isset($challPoints) && !empty($challPoints) && isset($submit))
 {
 	
-	if($_SESSION['token'] === $token)
+	if($_SESSION['token'] == $token)
 	{
 		if($challType === 'Web' || $challType === 'Crypto' || $challType === 'Network')
 		{
