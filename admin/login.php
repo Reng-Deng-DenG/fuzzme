@@ -37,9 +37,6 @@ ini_set('display_errors', '1');
 $password = $_POST['password'];
 $email = $_POST['email'];
 $submit = $_POST['submit'];
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-$referer = $_SERVER['HTTP_REFERER'];
-$ip = $_SERVER['REMOTE_ADDR'];
 
 if(isset($password) && !empty($password) && isset($email) && !empty($email) && isset($submit) && !empty($submit) && $submit === 'login')// Vérification des champs
 {
@@ -55,8 +52,13 @@ if(isset($password) && !empty($password) && isset($email) && !empty($email) && i
 		if(sha1($password) === $data['password'])// Vérification du mot de passe
 		{
 			if($data['rank'] > 0)// Vérification du rank
-			{
+			{	
+				
+				session_unset();
+				$_SESSION['email'] = $data['email'];
+				$_SESSION['username'] = $data['username'];
 				$_SESSION['rank'] = $data['rank'];
+				$_SESSION['token'] = $token = random_int(100000000, 10000000000000000) * 7 ;
 				header('Location: '.$uri.'/admin/index.php');//Redirection vers l'index du panel
 				exit();
 			}
